@@ -25,6 +25,7 @@ public class Alunos {
 		this.id = id;
 	}
 
+    @Override
 	public String toString() {
 		return nome + " - "+id;
 	}

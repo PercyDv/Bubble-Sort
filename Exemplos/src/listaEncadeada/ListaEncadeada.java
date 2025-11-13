@@ -29,7 +29,7 @@ public class ListaEncadeada {
 			posicaoAtual = primeiro;
 			return true;
 		} else {
-			boolean temProximo = posicaoAtual.getProximo() != null ? true : false;
+			boolean temProximo = posicaoAtual.getProximo() != null;
 			posicaoAtual = posicaoAtual.getProximo();
 			return temProximo;
 		}
