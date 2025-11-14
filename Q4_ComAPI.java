@@ -1,5 +1,3 @@
-package Faculdade.SegundoSemestre.EstruturaDados.Lista2_FILA.Q4;
-
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.LinkedList;
@@ -12,6 +10,7 @@ public class Q4_ComAPI {
         Iterator<Alunos> it = queue.iterator();
         Scanner kb = new Scanner(System.in);
 
+        int posi=0;
         String Menu = """
                 1 - Inserir Aluno.
                 2 - Consultar alunos por idade.
@@ -23,11 +22,12 @@ public class Q4_ComAPI {
             op = kb.nextInt();
             switch (op) {
                 case 1:
-                    add(queue, it, kb);
+                    posi++;
+                    add(queue, it, kb, posi);
                     break;
 
                 case 2:
-                    searchByAge(queue,it);
+                    searchByAge(queue, it);
                     break;
 
                 case 3:
@@ -40,7 +40,7 @@ public class Q4_ComAPI {
         } while (op != 3);
     }
 
-    public static void add(Queue<Alunos> queue, Iterator<Alunos> it, Scanner kb) {
+    public static void add(Queue<Alunos> queue, Iterator<Alunos> it, Scanner kb, int posi) {
         kb.nextLine();
         System.out.println("Escreva o nome do Aluno");
         String nome = kb.nextLine();
@@ -49,10 +49,7 @@ public class Q4_ComAPI {
         int idade = kb.nextInt();
         kb.nextLine();
 
-        int posicaoFila=0;
-        posicaoFila++;
-
-        Alunos aluno = new Alunos(nome, idade, posicaoFila);
+        Alunos aluno = new Alunos(nome, idade, posi);
 
         queue.add(aluno);
         System.out.println("Aluno adicionado!✅\nFila:");
@@ -63,30 +60,30 @@ public class Q4_ComAPI {
         }
     }
 
-    public static void searchByAge(Queue<Alunos> queue, Iterator<Alunos> it){
+    public static void searchByAge(Queue<Alunos> queue, Iterator<Alunos> it) {
 
         ArrayList<Alunos> inOrder = new ArrayList<Alunos>();
 
-        it= queue.iterator();
-        while(it.hasNext()){
+        it = queue.iterator();
+        while (it.hasNext()) {
             Alunos currentStudent = it.next();
             inOrder.add(currentStudent);
         }
 
         for (int i = 0; i < queue.size(); i++) {
-            for (int j = 0; j < queue.size()-1; j++) {
-                if(inOrder.get(j).getAge()>inOrder.get(j+1).getAge()){
+            for (int j = 0; j < queue.size() - 1; j++) {
+                if (inOrder.get(j).getAge() > inOrder.get(j + 1).getAge()) {
                     Alunos temp = inOrder.get(j);
-                    inOrder.set(j, inOrder.get(j+1));
-                    inOrder.set(j+1, temp);
+                    inOrder.set(j, inOrder.get(j + 1));
+                    inOrder.set(j + 1, temp);
                 }
             }
         }
         Iterator<Alunos> it1 = inOrder.iterator();
-        System.out.println("Alunos em ordem:");
-        while(it1.hasNext()){
+        System.out.println("Alunos em ordem de idade:\n");
+        while (it1.hasNext()) {
             System.out.println(it1.next());
         }
+        System.out.println();
     }
 }
-

@@ -1,5 +1,3 @@
-package Faculdade.SegundoSemestre.EstruturaDados.Lista2_FILA.Q4;
-
 public class Alunos {
     private int age, posiFila;
     private String name;
