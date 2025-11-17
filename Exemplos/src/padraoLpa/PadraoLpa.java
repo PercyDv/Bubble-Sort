@@ -1,5 +1,3 @@
-
-
 public class PadraoLpa {
     public static void main(String args[]) {
         int[] vet = {8, 9, 3, 5, 1};
