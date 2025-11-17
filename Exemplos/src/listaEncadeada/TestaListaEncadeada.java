@@ -9,8 +9,8 @@ public class TestaListaEncadeada {
 
 		String menu = """
 				============ Menu =================
-				(1) Adicionar Professores
-				(2) Remover Professores
+				(1) Adicionar Alunos
+				(2) Remover Alunos
 				(3) Pesquisar
 				(4) Listar os registros da lista
 				(5) Colocar em Ordem Alfabética
